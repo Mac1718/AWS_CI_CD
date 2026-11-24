@@ -2,11 +2,24 @@
 version: 0.2
 
 phases:
+  install:
+    commands:
+      - "echo Installing deployment tools"
+
   build:
     commands:
-      - echo "Deploying static website to S3..."
+      - "echo Checking AWS identity"
+      - "aws sts get-caller-identity"
+      - "echo Checking S3 bucket"
+      - "aws s3 ls s3://mac-ci-cd/"
 
   post_build:
     commands:
-      - aws s3 sync . s3://mac-ci-cd/ --delete --exclude ".git/*" --exclude "buildspec.yml"
+      - "echo Uploading website files"
+      - "aws s3 sync . s3://mac-ci-cd/ --delete --exclude .git/* --exclude buildspec.yml"
+      - "echo Deployment completed"
 
+artifacts:
+  files:
+    - "**/*"
+  discard-paths: no
