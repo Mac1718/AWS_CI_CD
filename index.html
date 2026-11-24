@@ -1,0 +1,374 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome | Modern Web Experience</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --bg: #101411;
+    --surface: #1a211c;
+    --text: #f4f5ed;
+    --muted: #a5afa5;
+    --accent: #c5df9b;
+    --border: rgba(255,255,255,0.09);
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    font-family: Inter, "Segoe UI", Arial, sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+}
+
+/* Navigation */
+nav {
+    height: 78px;
+    padding: 0 8%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--border);
+}
+
+.logo {
+    font-size: 23px;
+    font-weight: 800;
+    letter-spacing: -1px;
+}
+
+.logo span {
+    color: var(--accent);
+}
+
+.nav-links {
+    display: flex;
+    gap: 32px;
+}
+
+.nav-links a {
+    color: var(--muted);
+    text-decoration: none;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.nav-links a:hover {
+    color: var(--accent);
+}
+
+.nav-button {
+    background: var(--accent);
+    color: #182015;
+    padding: 11px 20px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-size: 13px;
+    font-weight: 700;
+}
+
+/* Hero */
+.hero {
+    min-height: 620px;
+    padding: 110px 8%;
+    display: flex;
+    align-items: center;
+    background:
+        radial-gradient(ellipse at 80% 40%, rgba(158,194,112,0.14), transparent 45%),
+        var(--bg);
+}
+
+.hero-content {
+    max-width: 760px;
+    animation: fadeUp 1s ease both;
+}
+
+.tag {
+    display: inline-block;
+    color: var(--accent);
+    border: 1px solid rgba(197,223,155,0.3);
+    padding: 7px 14px;
+    border-radius: 30px;
+    font-size: 12px;
+    letter-spacing: 1px;
+    margin-bottom: 25px;
+}
+
+h1 {
+    font-size: clamp(42px, 7vw, 76px);
+    line-height: 1.08;
+    letter-spacing: -3px;
+    margin-bottom: 25px;
+}
+
+h1 span {
+    color: var(--accent);
+}
+
+.hero p {
+    color: var(--muted);
+    max-width: 570px;
+    font-size: 17px;
+    margin-bottom: 35px;
+}
+
+.hero-actions {
+    display: flex;
+    gap: 15px;
+    flex-wrap: wrap;
+}
+
+.primary-button,
+.secondary-button {
+    padding: 14px 24px;
+    border-radius: 7px;
+    text-decoration: none;
+    font-weight: 700;
+    font-size: 14px;
+    transition: 0.3s;
+}
+
+.primary-button {
+    background: var(--accent);
+    color: #182015;
+}
+
+.secondary-button {
+    color: var(--text);
+    border: 1px solid var(--border);
+}
+
+.primary-button:hover,
+.secondary-button:hover {
+    transform: translateY(-4px);
+}
+
+/* Features */
+.features {
+    padding: 90px 8%;
+    background: #151b16;
+}
+
+.section-heading {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.section-heading h2 {
+    font-size: 38px;
+    letter-spacing: -1px;
+    margin-bottom: 10px;
+}
+
+.section-heading p {
+    color: var(--muted);
+}
+
+.cards {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.card {
+    padding: 32px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 13px;
+    transition: 0.35s;
+}
+
+.card:hover {
+    transform: translateY(-8px);
+    border-color: rgba(197,223,155,0.5);
+}
+
+.card-icon {
+    width: 48px;
+    height: 48px;
+    display: grid;
+    place-items: center;
+    background: rgba(197,223,155,0.12);
+    color: var(--accent);
+    border-radius: 10px;
+    font-size: 23px;
+    margin-bottom: 22px;
+}
+
+.card h3 {
+    font-size: 19px;
+    margin-bottom: 12px;
+}
+
+.card p {
+    color: var(--muted);
+    font-size: 14px;
+}
+
+/* About */
+.about {
+    padding: 90px 8%;
+    text-align: center;
+}
+
+.about h2 {
+    font-size: 36px;
+    margin-bottom: 18px;
+}
+
+.about p {
+    max-width: 650px;
+    margin: auto;
+    color: var(--muted);
+}
+
+/* Footer */
+footer {
+    padding: 28px 8%;
+    border-top: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 15px;
+    color: var(--muted);
+    font-size: 13px;
+}
+
+@keyframes fadeUp {
+    from {
+        opacity: 0;
+        transform: translateY(25px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Mobile */
+@media(max-width: 768px) {
+    nav {
+        padding: 0 5%;
+    }
+
+    .nav-links {
+        display: none;
+    }
+
+    .hero {
+        padding: 90px 6%;
+        min-height: 550px;
+    }
+
+    .cards {
+        grid-template-columns: 1fr;
+    }
+
+    .features,
+    .about {
+        padding: 70px 6%;
+    }
+
+    h1 {
+        letter-spacing: -2px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">NOVA<span>.</span></div>
+
+    <div class="nav-links">
+        <a href="#home">Home</a>
+        <a href="#features">Features</a>
+        <a href="#about">About</a>
+    </div>
+
+    <a href="#about" class="nav-button">Explore More</a>
+</nav>
+
+<section class="hero" id="home">
+    <div class="hero-content">
+        <div class="tag">WELCOME TO NOVA</div>
+
+        <h1>
+            Ideas become<br>
+            <span>extraordinary.</span>
+        </h1>
+
+        <p>
+            Discover a modern digital experience designed around
+            simplicity, creativity and innovation. A space where
+            possibilities turn into meaningful experiences.
+        </p>
+
+        <div class="hero-actions">
+            <a href="#features" class="primary-button">Get Started →</a>
+            <a href="#about" class="secondary-button">Learn More</a>
+        </div>
+    </div>
+</section>
+
+<section class="features" id="features">
+    <div class="section-heading">
+        <h2>What We Offer</h2>
+        <p>Everything you need for a better digital experience.</p>
+    </div>
+
+    <div class="cards">
+        <div class="card">
+            <div class="card-icon">✦</div>
+            <h3>Modern Design</h3>
+            <p>A clean and elegant interface with a focus on simplicity and usability.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">⚡</div>
+            <h3>High Performance</h3>
+            <p>Lightweight, responsive and optimized for a smooth browsing experience.</p>
+        </div>
+
+        <div class="card">
+            <div class="card-icon">◈</div>
+            <h3>Fully Responsive</h3>
+            <p>Designed to look beautiful across desktops, tablets and mobile devices.</p>
+        </div>
+    </div>
+</section>
+
+<section class="about" id="about">
+    <h2>Built for What's Next.</h2>
+    <p>
+        Great experiences begin with great ideas. NOVA brings together
+        thoughtful design and modern technology to create something
+        meaningful, useful and memorable.
+    </p>
+</section>
+
+<footer>
+    <div>© <span id="year"></span> NOVA. All rights reserved.</div>
+    <div>Designed with simplicity.</div>
+</footer>
+
+<script>
+document.getElementById("year").textContent =
+    new Date().getFullYear();
+</script>
+
+</body>
+</html>
